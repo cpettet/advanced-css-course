@@ -6,3 +6,40 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+  /* Reset so CSS box-model behaves as-expected. */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Better to put font here as it will be inherited. */
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* Amount of space above and below an inline element. 1.7x larger than the font-size. */
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
+}
+
+.header {
+  /* Height should be 95% of the viewport. */
+  height: 95vh;
+  background-image:
+    linear-gradient(
+      to right bottom,
+      rgba(128, 214, 113, 0.8),
+      rgba(40, 180, 133, 0.8)
+    ),
+    url(../img/hero.jpg
+  );
+  /* Whatever the image size, it'll try to fit the element. */
+  background-size: cover;
+  /* The top of the image stays the same, never cropped when viewport changes. */
+  background-position: top;
+  /* Specifies a polygon at which all inside will be visible. */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
