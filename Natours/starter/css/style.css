@@ -147,6 +147,20 @@ body {
   }
 }
 
+@keyframes moveInBottom {
+  /* Starting frame of animation */
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Finishing frame of animation */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* :link is a pseudo-class to style under special conditions */
 /* Not setting :visited will use default styling (purple link) */
 .btn:link,
@@ -157,6 +171,7 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
+  position: relative;
 }
 
 .btn:hover {
@@ -173,4 +188,36 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+/* :after adds a virtual element after selecting an element */
+.btn::after {
+  /* content is essential, even if empty */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* put element behind */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* an after pseudo-element on a hover state */
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* Apply styles of the 0% for the start */
+  animation-fill-mode: backwards;
 }
