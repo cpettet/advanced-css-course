@@ -64,6 +64,7 @@ body {
   left: 50%;
   /* Shifts the top, left corner to the middle. In relation to element itself. */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -73,6 +74,7 @@ body {
   /* Determines if the backface of an element is visible/hidden during transforms. */
   /* Seems to fix shakiness of animation elements. */
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -143,4 +145,32 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* :link is a pseudo-class to style under special conditions */
+/* Not setting :visited will use default styling (purple link) */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* x-shadow y-shadow blurriness shadow-color */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
